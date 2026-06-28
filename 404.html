@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Lokko Market</title>
+    <title>Redirecting to Lokko Market...</title>
     <style>
         body { font-family: sans-serif; text-align: center; padding-top: 50px; }
         .button { 
@@ -13,18 +13,17 @@
 </head>
 <body>
     <h1>Lokko Market</h1>
-    <p>We couldn't find this specific post on our web page.</p>
-    <p>Do you have the app installed?</p>
+    <p>Redirecting you to the Play Store...</p>
     
     <a href="https://play.google.com/store/apps/details?id=com.rxai.lokko" class="button">
-        Download/Open in Play Store
+        Click here if not redirected
     </a>
 
     <script>
-        // Optional: Only redirect if you are ABSOLUTELY sure 
-        // you want to force them to the play store. 
-        // I recommend keeping it manual (like the button above) 
-        // so the user isn't frustrated if they are just browsing.
+        // Redirect to Play Store after 1 second
+        setTimeout(function() {
+            window.location.href = "https://play.google.com/store/apps/details?id=com.rxai.lokko";
+        }, 1000);
     </script>
 </body>
 </html>
