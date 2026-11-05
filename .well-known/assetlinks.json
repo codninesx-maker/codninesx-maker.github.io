@@ -1,1 +1,33 @@
 
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.rxai.lokko",
+      "sha256_cert_fingerprints": [
+        "46:3E:E2:FE:7B:A6:44:AA:9F:87:F5:EF:4D:0B:8C:F6:25:8B:0F:FA:94:A7:43:85:2B:F4:D0:EE:EC:59:59:AD"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.rxai.pcb",
+      "sha256_cert_fingerprints": [
+        "YOUR_PCB_APP_SHA256_FINGERPRINT"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.rxai.quran",
+      "sha256_cert_fingerprints": [
+        "YOUR_QURAN_APP_SHA256_FINGERPRINT"
+      ]
+    }
+  }
+]
