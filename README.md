@@ -13,6 +13,8 @@ Official developer website and GitHub Pages host for **Codninesx** mobile applic
 | **Mess** | `com.rxai.mess` | Smart mess and meal management application for shared living and student hostels. | [Google Play](https://play.google.com/store/apps/details?id=com.rxai.mess) |
 | **LOKKO** | `com.rxai.lokko` | Local marketplace platform connecting buyers and sellers seamlessly. | [Google Play](https://play.google.com/store/apps/details?id=com.rxai.lokko) |
 | **PHARMACIST** | `com.rxai.pcb` | Pharmacy and medicine inventory assistant built for healthcare professionals. | [Google Play](https://play.google.com/store/apps/details?id=com.rxai.pcb) |
+| **QURAN** | `com.rxai.quran` | Read and lissen beautiful quran built for people. | [Google Play](https://play.google.com/store/apps/details?id=com.rxai.quran) |
+| **QURAN Bangla** | `com.rxai.quran_complete` | Read and listen beautiful quran built for people & make dua. | [Google Play](https://play.google.com/store/apps/details?id=com.rxai.quran_complete) |
 
 ---
 
