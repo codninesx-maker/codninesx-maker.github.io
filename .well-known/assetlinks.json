@@ -29,5 +29,25 @@
         "YOUR_QURAN_APP_SHA256_FINGERPRINT"
       ]
     }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.rxai.quran_complete",
+      "sha256_cert_fingerprints": [
+        "YOUR_QURAN_APP_SHA256_FINGERPRINT"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.rxai.mess",
+      "sha256_cert_fingerprints": [
+        "YOUR_QURAN_APP_SHA256_FINGERPRINT"
+      ]
+    }
   }
 ]
