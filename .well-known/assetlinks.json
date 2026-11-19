@@ -16,7 +16,7 @@
       "namespace": "android_app",
       "package_name": "com.rxai.pcb",
       "sha256_cert_fingerprints": [
-        "YOUR_PCB_APP_SHA256_FINGERPRINT"
+        "BC:E8:64:99:9A:E5:CD:FF:FC:63:AF:CA:12:AF:E1:39:D7:4E:29:E4:40:75:0B:C5:7F:31:C0:6C:FD:E9:6E:AD"
       ]
     }
   },
@@ -26,7 +26,7 @@
       "namespace": "android_app",
       "package_name": "com.rxai.quran",
       "sha256_cert_fingerprints": [
-        "YOUR_QURAN_APP_SHA256_FINGERPRINT"
+        "CC:A4:D9:9B:68:62:E4:27:96:02:3E:78:7E:0B:93:95:3C:67:3F:46:F7:15:7E:DA:BC:56:0F:9E:C6:5D:AE:07"
       ]
     }
   },
@@ -36,7 +36,7 @@
       "namespace": "android_app",
       "package_name": "com.rxai.quran_complete",
       "sha256_cert_fingerprints": [
-        "YOUR_QURAN_APP_SHA256_FINGERPRINT"
+        "23:2D:3B:27:22:CE:C0:DD:16:21:91:98:5E:4B:5E:28:05:DB:68:BF:49:25:C8:5A:96:87:D4:8D:4A:BC:33:B7"
       ]
     }
   },
@@ -46,7 +46,7 @@
       "namespace": "android_app",
       "package_name": "com.rxai.mess",
       "sha256_cert_fingerprints": [
-        "YOUR_QURAN_APP_SHA256_FINGERPRINT"
+        "13:B3:91:E3:51:78:CA:45:B0:D1:73:A5:1B:B9:B9:B5:C2:D5:E6:DC:1C:8E:1B:97:B2:27:5E:1B:B4:46:F7:C6"
       ]
     }
   }
