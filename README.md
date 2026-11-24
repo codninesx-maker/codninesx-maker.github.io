@@ -1,6 +1,6 @@
 # Codninesx
 
-Official developer website and GitHub Pages host for **rxai-bdtech** mobile applications.
+Official developer website and GitHub Pages host for **rxai-etech** mobile applications.
 
 🌐 **Live Site:** [https://codninesx-maker.github.io](https://codninesx-maker.github.io)
 
