@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rxai-etech | Flutter App Developer &amp; Mobile Solutions</title>
+  <meta name="description" content="rxai-etech — Flutter mobile app development, UI &amp; bug fixes, MVP builds, and published Android apps on Google Play." />
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --surface: #121826;
+      --surface-hover: #182032;
+      --border: #1f293d;
+      --text: #f3f4f6;
+      --muted: #9ca3af;
+      --accent: #38bdf8;
+      --accent-dark: #0284c7;
+      --success: #34d399;
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header / Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #06101d !important;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-cta:hover {
+      opacity: 0.9;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 72px 0 56px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--success);
+      background: rgba(52, 211, 153, 0.1);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+      padding: 6px 12px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      line-height: 1.18;
+      font-weight: 800;
+      max-width: 780px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 660px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #06101d;
+    }
+
+    .btn-primary:hover {
+      background: #7dd3fc;
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface-hover);
+      border-color: #334155;
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-item strong {
+      display: block;
+      font-size: 1.25rem;
+      color: var(--text);
+    }
+
+    .stat-item span {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* Section Styling */
+    section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-header {
+      margin-bottom: 32px;
+    }
+
+    .section-header h2 {
+      font-size: 1.65rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    /* Grid Layouts */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: #334155;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: rgba(56, 189, 248, 0.1);
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      width: fit-content;
+    }
+
+    .card h3 {
+      font-size: 1.18rem;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+      margin-bottom: 20px;
+    }
+
+    .card-link {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Pricing / Packages */
+    .price {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .price span {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-bottom: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .feature-list li::before {
+      content: "✓ ";
+      color: var(--success);
+      font-weight: 700;
+    }
+
+    /* Contact Box */
+    .contact-box {
+      background: linear-gradient(145deg, #121826, #0f172a);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      text-align: center;
+    }
+
+    .contact-box h2 {
+      font-size: 1.65rem;
+      margin-bottom: 10px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 24px;
+    }
+
+    .email-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.95rem;
+      margin-bottom: 18px;
+    }
+
+    footer {
+      padding: 28px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    @media (max-width: 640px) {
+      .nav-links a:not(.nav-cta) {
+        display: none;
+      }
+      .hero {
+        padding: 48px 0 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="container nav">
+      <a href="#" class="brand">
+        <span class="brand-dot"></span>
+        <span>rxai-etech</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#apps">Published Apps</a>
+        <a href="#services">Services</a>
+        <a href="#contact" class="nav-cta">Hire Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="badge">● Available for Freelance Flutter Projects</div>
+        <h1>Building Fast, Clean <span>Flutter Mobile Apps</span> From Idea to Play Store</h1>
+        <p>
+          Hi, I’m Sohail (<strong>rxai-etech</strong>) — an Android &amp; Flutter developer with multiple live apps published on Google Play. I help founders, businesses, and indie creators fix bugs, refine UI screens, and launch clean MVP apps fast.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Start a Project</a>
+          <a href="#apps" class="btn btn-secondary">Explore Live Apps</a>
+        </div>
+        <div class="stats">
+          <div class="stat-item">
+            <strong>5+ Live Apps</strong>
+            <span>Published on Google Play</span>
+          </div>
+          <div class="stat-item">
+            <strong>Flutter &amp; Dart</strong>
+            <span>Cross-Platform Mobile UI</span>
+          </div>
+          <div class="stat-item">
+            <strong>24–48h Turnaround</strong>
+            <span>For Bug Fixes &amp; UI Tasks</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Published Applications -->
+    <section id="apps">
+      <div class="container">
+        <div class="section-header">
+          <h2>Published Applications</h2>
+          <p>Real-world Android applications designed, built, and deployed on the Google Play Store.</p>
+        </div>
+
+        <div class="grid-3">
+          <!-- App 1: Mess -->
+          <article class="card">
+            <div>
+              <span class="tag">Management &amp; Utility</span>
+              <h3>Mess</h3>
+              <p>Smart mess and meal management application for shared living, room tracking, utility billing, and student hostels.</p>
+            </div>
+            <!-- Replace # with your exact Play Store URL for Mess -->
+            <a href="https://play.google.com/store/apps/developer?id=rxai-etech" target="_blank" rel="noopener" class="card-link">
+              View on Google Play &rarr;
+            </a>
+          </article>
+
+          <!-- App 2: LOKKO -->
+          <article class="card">
+            <div>
+              <span class="tag">Marketplace</span>
+              <h3>LOKKO</h3>
+              <p>Local marketplace platform connecting buyers and sellers seamlessly with clean product discovery and listing workflows.</p>
+            </div>
+            <a href="https://play.google.com/store/apps/details?id=com.rxai.lokko" target="_blank" rel="noopener" class="card-link">
+              View on Google Play &rarr;
+            </a>
+          </article>
+
+          <!-- App 3: PHARMACIST -->
+          <article class="card">
+            <div>
+              <span class="tag">Healthcare &amp; Inventory</span>
+              <h3>PHARMACIST</h3>
+              <p>Pharmacy and medicine inventory assistant built to streamline daily product lookup and retail operations.</p>
+            </div>
+            <a href="https://play.google.com/store/apps/details?id=com.rxai.pcb" target="_blank" rel="noopener" class="card-link">
+              View on Google Play &rarr;
+            </a>
+          </article>
+
+          <!-- App 4: QURAN Bangla -->
+          <article class="card">
+            <div>
+              <span class="tag">Education &amp; Audio</span>
+              <h3>QURAN Bangla</h3>
+              <p>Read and listen to the Holy Quran with clear Arabic text, Bangla translation, and smooth audio recitation.</p>
+            </div>
+            <!-- Replace # with your exact Play Store URL for QURAN Bangla -->
+            <a href="https://play.google.com/store/apps/developer?id=rxai-etech" target="_blank" rel="noopener" class="card-link">
+              View on Google Play &rarr;
+            </a>
+          </article>
+
+          <!-- App 5: QURAN বাংলা -->
+          <article class="card">
+            <div>
+              <span class="tag">Offline Reader</span>
+              <h3>QURAN বাংলা</h3>
+              <p>Complete Quran reader featuring offline audio recitation, Bangla translation, and essential daily duas.</p>
+            </div>
+            <!-- Replace # with your exact Play Store URL for QURAN বাংলা -->
+            <a href="https://play.google.com/store/apps/developer?id=rxai-etech" target="_blank" rel="noopener" class="card-link">
+              View on Google Play &rarr;
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Freelance Services & Starter Packages -->
+    <section id="services">
+      <div class="container">
+        <div class="section-header">
+          <h2>Freelance Services &amp; Starter Packages</h2>
+          <p>Transparent, fast-turnaround Flutter development packages tailored for quick launches and fixes.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div>
+              <span class="tag">Quick Fix</span>
+              <h3>Flutter Bug Fix &amp; UI Polish</h3>
+              <div class="price">$40 <span>/ starting</span></div>
+              <ul class="feature-list">
+                <li>Fix 1–2 layout, overflow, or state bugs</li>
+                <li>Responsive screen adjustments</li>
+                <li>Clean, commented Dart code</li>
+                <li>48-hour fast delivery</li>
+              </ul>
+            </div>
+            <a href="mailto:codninesx@gmail.com?subject=Flutter%20Bug%20Fix%20Inquiry" class="btn btn-secondary">Request Quick Fix</a>
+          </div>
+
+          <div class="card">
+            <div>
+              <span class="tag">Most Popular</span>
+              <h3>Single-Purpose MVP App</h3>
+              <div class="price">$95 <span>/ starting</span></div>
+              <ul class="feature-list">
+                <li>3–5 custom responsive Flutter screens</li>
+                <li>Local storage or REST API / Supabase setup</li>
+                <li>Clean modern UI &amp; smooth navigation</li>
+                <li>Source code + APK test build</li>
+              </ul>
+            </div>
+            <a href="mailto:codninesx@gmail.com?subject=Flutter%20MVP%20App%20Inquiry" class="btn btn-primary">Build My MVP</a>
+          </div>
+
+          <div class="card">
+            <div>
+              <span class="tag">Launch Ready</span>
+              <h3>Play Store &amp; AdMob Setup</h3>
+              <div class="price">$50 <span>/ package</span></div>
+              <ul class="feature-list">
+                <li>Signed Android App Bundle (.aab) build</li>
+                <li>AdMob banner/interstitial &amp; app-ads.txt</li>
+                <li>Play Console listing &amp; release checklist</li>
+                <li>Submission-ready configuration</li>
+              </ul>
+            </div>
+            <a href="mailto:codninesx@gmail.com?subject=Play%20Store%20Setup%20Inquiry" class="btn btn-secondary">Get Launch Help</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="border-bottom: none;">
+      <div class="container">
+        <div class="contact-box">
+          <h2>Have an App Idea or a Bug to Fix?</h2>
+          <p>Send a quick message with your app details or screenshots. I reply promptly with exact pricing and timeline.</p>
+          <div class="email-pill">
+            <span id="email-text">codninesx@gmail.com</span>
+          </div>
+          <div class="hero-actions" style="justify-content: center; margin-bottom: 0;">
+            <a href="mailto:codninesx@gmail.com?subject=Project%20Inquiry%20-%20rxai-etech" class="btn btn-primary">Send Email</a>
+            <button type="button" class="btn btn-secondary" onclick="copyEmail(this)">Copy Email Address</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 rxai-etech &bull; Flutter &amp; Android App Development</p>
+    </div>
+  </footer>
+
+  <script>
+    function copyEmail(btn) {
+      const email = document.getElementById("email-text").innerText;
+      navigator.clipboard.writeText(email).then(() => {
+        const original = btn.innerText;
+        btn.innerText = "Copied!";
+        setTimeout(() => {
+          btn.innerText = original;
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
