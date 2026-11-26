@@ -1,15 +1,15 @@
-# rxai-etech — Portfolio & Freelance Landing Page (`index_1.html`)
+# rxai-etech — Portfolio & Freelance Landing Page (`index.html`)
 
-This file documents the secondary/freelance landing page (`index_1.html`) hosted at:
+This file documents the secondary/freelance landing page (`index.html`) hosted at:
 
-- **Live URL:** `https://codninesx-maker.github.io/index_1.html`
+- **Live URL:** `https://codninesx-maker.github.io/index.html`
 - **Main Site:** `https://codninesx-maker.github.io/`
 
 ---
 
 ## Overview
 
-`index_1.html` is a lightweight, responsive, single-page developer showcase and freelance pitch page for **rxai-etech** (Flutter & Android app development). It is designed to be shared directly with potential clients, freelance leads, and collaborators while keeping `index.html` intact.
+`index.html` is a lightweight, responsive, single-page developer showcase and freelance pitch page for **rxai-etech** (Flutter & Android app development). It is designed to be shared directly with potential clients, freelance leads, and collaborators while keeping `index.html` intact.
 
 ### Sections Included
 1. **Header & Navigation:** Quick jump links to *Published Apps*, *Services*, and *Hire Me*.
@@ -27,9 +27,9 @@ This file documents the secondary/freelance landing page (`index_1.html`) hosted
 
 ## Customization Notes
 
-- **Google Play Links:** Update any placeholder Play Store links in `index_1.html` with exact `https://play.google.com/store/apps/details?id=...` URLs.
+- **Google Play Links:** Update any placeholder Play Store links in `index.html` with exact `https://play.google.com/store/apps/details?id=...` URLs.
 - **Ad Compliance:** Do not remove or alter `app-ads.txt` in the repository root when adding or updating HTML pages.
-- **Promoting to Root:** To make this version the primary homepage later, copy the contents of `index_1.html` into `index.html` and push to the main branch.
+- **Promoting to Root:** To make this version the primary homepage later, copy the contents of `index.html` into `index.html` and push to the main branch.
 
 ---
 
